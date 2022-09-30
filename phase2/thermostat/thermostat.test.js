@@ -16,16 +16,9 @@ describe('thermostat', () => {
     });
     it('decreases thermostat by 11 degree', () => {
         const thermo = new Thermostat();
-        thermo.down();
-        thermo.down();
-        thermo.down();
-        thermo.down();
-        thermo.down();
-        thermo.down();
-        thermo.down();
-        thermo.down();
-        thermo.down();
-        thermo.down();
+        for (let i = 0 ; i < 10 ; i++) {
+            thermo.down();
+        }
         let result = thermo.down();
         expect(result).toEqual("Temperature can not be lower than 10");
     });
@@ -43,11 +36,9 @@ describe('thermostat', () => {
 
     it('turns on the power saving mode and reaches maximum temperature', () => {
         const thermo = new Thermostat();
-        thermo.up();
-        thermo.up();
-        thermo.up();
-        thermo.up();
-        thermo.up();
+        for (let i = 0 ; i < 5 ; i++) {
+            thermo.up();
+        }
         const result = thermo.up();
         expect(result).toEqual("Reached maximum temperature");
     });
